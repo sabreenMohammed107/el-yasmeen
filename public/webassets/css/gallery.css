@@ -1,0 +1,140 @@
+
+
+.ftco-gallery {
+		padding: 0;
+	}
+
+	.gallery {
+		display: block;
+		height: 200px;
+		position: relative;
+	}
+
+		.gallery .icon {
+			width: 50px;
+			height: 50px;
+			margin: 0 auto;
+			z-index: 0;
+			opacity: 0;
+			position: relative;
+			background: #004A9B;
+			-moz-transition: all 0.3s ease;
+			-o-transition: all 0.3s ease;
+			-webkit-transition: all 0.3s ease;
+			-ms-transition: all 0.3s ease;
+			transition: all 0.3s ease;
+		}
+
+			.gallery .icon span {
+				color: #fff;
+			}
+
+		.gallery:hover .icon, .gallery:focus .icon {
+			opacity: 1;
+		}
+
+	.block-20 {
+		overflow: hidden;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		height: 275px;
+		position: relative;
+		display: block;
+	}
+
+	.img{
+		max-width:100% !important;
+	}
+	.video {
+		width: 100%;
+		position: relative;
+	}
+
+	.icon-video {
+		width: 60px;
+		height: 60px;
+		background: #004A9B;
+		-webkit-box-shadow: 0px 0px 34px -8px rgba(0, 0, 0, 0.1);
+		-moz-box-shadow: 0px 0px 34px -8px rgba(0, 0, 0, 0.1);
+		box-shadow: 0px 0px 34px -8px rgba(0, 0, 0, 0.1);
+		z-index: 1;
+		margin: 0 auto;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		-ms-border-radius: 50%;
+		border-radius: 50%;
+	}
+	.icon-video:hover{
+		text-decoration:none
+	}
+		.icon-video span {
+			font-size: 20px;
+			color: #fff;
+		}
+
+	.pro-img {
+		border-top-right-radius: .5rem;
+		border-bottom-right-radius: .5rem;
+		height: 100%;
+		width: 200px;
+		box-shadow: inset 0 0 0 2000px rgba(13, 27, 62, 0.5);
+	}
+
+	.item {
+		padding: 15px 0;
+	}
+	.ar .filters{
+		text-align:right;
+	}
+	.en .filters{
+		text-align:left;
+	}
+	.filters ul {
+		list-style: none;
+	}
+
+	.filters li {
+		padding: 20px 0px;
+		color: #8C8C8C;
+		font-size: 18px;
+		font-weight: 600;
+		cursor:pointer;
+	}
+
+	.filters .active {
+		color: #004A9B;
+	}
+
+	@media (min-width:320px) and (max-width:600px) {
+
+		.filters li {
+			padding-left: 25px;
+			display: inline-block;
+		}
+
+		.pro-img {
+			width: 100px !important;
+		}
+	}
+
+	@media (min-width:600px) and (max-width:999px) {
+
+		.filters li {
+			padding-left: 25px;
+			display: inline-block;
+		}
+	}
+
+	.en .dir{
+		direction:ltr;
+	}
+	.ar .dir{
+		direction:rtl;
+	}
+	.en text-dir{
+		text-align:left !important; 
+	}
+	.ar text-dir{
+		text-align:right !important;
+	}
