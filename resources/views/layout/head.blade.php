@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +19,8 @@
   	<link rel="stylesheet" href="{{ asset('webassets/css/hover-min.css')}}">
     <link rel="stylesheet" href="{{ asset('webassets/css/aos.css')}}">
     <link rel="stylesheet" href="{{ asset('webassets/css/style.css')}}">
-@yield('style')
+
+    @yield('style')
 
   </head>
   @yield('body')

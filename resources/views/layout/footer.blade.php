@@ -22,11 +22,11 @@
           <div class="ftco-footer-widget mb-5">
             <h2 class="ftco-heading-2">لينكات تهمك</h2>
             <ul class="list-unstyled pr-0">
-              <li><a href="#"><span class="fa-solid fa-angle-left ml-2"></span>الرئيسية</a></li>
-              <li><a href="#"><span class="fa-solid fa-angle-left ml-2"></span>من نحن</a></li>
-              <li><a href="#"><span class="fa-solid fa-angle-left ml-2"></span>خدماتنا</a></li>
-              <li><a href="#"><span class="fa-solid fa-angle-left ml-2"></span>سابقه العملاء</a></li>
-              <li><a href="#"><span class="fa-solid fa-angle-left ml-2"></span>المدونه</a></li>
+              <li><a href="{{ url('/') }}"><span class="fa-solid fa-angle-left ml-2"></span>الرئيسية</a></li>
+              <li><a href="{{ url('/') }}#about-sec"><span class="fa-solid fa-angle-left ml-2"></span>من نحن</a></li>
+              <li><a href="{{ url('/') }}#serv-sec"><span class="fa-solid fa-angle-left ml-2"></span>خدماتنا</a></li>
+              <li><a href="{{ url('/') }}#glry-sec"><span class="fa-solid fa-angle-left ml-2"></span>سابقه العملاء</a></li>
+              <li><a href="{{ url('/') }}#blog-sec"><span class="fa-solid fa-angle-left ml-2"></span>المدونه</a></li>
             </ul>
           </div>
         </div>

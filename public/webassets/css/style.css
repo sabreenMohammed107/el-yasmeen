@@ -18,8 +18,13 @@ html {
   font-family: Cairo;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
-
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  behavior: 'smooth';
+  scroll-behavior: smooth;
+}
+textarea::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
 
@@ -8217,7 +8222,10 @@ h1, h2, h3, h4, h5,
   z-index: 3;
   padding: 0;
   position:sticky;
-	top:0;
+  top:0px;
+  box-shadow: 2px 5px 5px 0px rgba(139,147,217,0.55);
+-webkit-box-shadow: 2px 5px 5px 0px rgba(139,147,217,0.55);
+-moz-box-shadow: 2px 5px 5px 0px rgba(139,147,217,0.55);
 }
   .ftco-navbar-light .container {
     background: rgba(255, 255, 255, 1);
@@ -8724,8 +8732,14 @@ h1, h2, h3, h4, h5,
 
 .wrap-about {
   position: relative; }
+  .wrap-about h4 {
+    font-weight: 500;
+	color:#0F1644;
+  }
   .wrap-about h2 {
-    font-weight: 500; }
+    font-weight: 500;
+	color:#0F1644;
+  }
   .wrap-about .img {
     width: 100%; }
 
@@ -9777,7 +9791,7 @@ textarea.form-control {
     margin-bottom: 20px;
 	color:#4454A5 !important;
   }
-  .sidebar-box .line{
+  .line{
    width:50px;
    height:2px;
    background-color:#4454A5;
@@ -10001,6 +10015,18 @@ textarea.form-control {
 			padding-right:40px;
 			padding-left:40px;
 		}
+	 }
+	 @media  (min-width : 300px) and (max-width:991px){
+		 .ftco-navbar-light {
+  background: rgba(255, 255, 255, 1) !important;
+  z-index: 3;
+  padding: 10px 0;
+  position:sticky;
+  top:0px;
+  box-shadow: 2px 5px 5px 0px rgba(139,147,217,0.55);
+-webkit-box-shadow: 2px 5px 5px 0px rgba(139,147,217,0.55);
+-moz-box-shadow: 2px 5px 5px 0px rgba(139,147,217,0.55);
+}
 	 }
 	 .bg-gallery{
 		 background-color:#FAFBFD;
