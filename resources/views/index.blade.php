@@ -48,8 +48,7 @@
                         <div class="col-lg-6 col-md-12 col-sm-12 wrap-about py-5 pr-md-4 ftco-animate">
                             <div class="row mt-5">
 
-                                <div class="col-lg-6 col-md-12 col-sm-12 wrap-about py-5 pr-md-4 ftco-animate">
-                                    <div class="row mt-5">
+
                                         @isset($whyRows[0])
                                         <div class="col-lg-6 col-md-6 brd-1">
                                             <div class="services-2 d-flex justify-content-center align-items-center">
@@ -98,8 +97,7 @@
 
 
 
-                                    </div>
-                                </div>
+
 
 
                             </div>
