@@ -11,6 +11,15 @@
 <script src="{{ asset('webassets/js/jquery.animateNumber.min.js')}}"></script>
 <script src="{{ asset('webassets/js/scrollax.min.js')}}"></script>
 <script src="{{ asset('webassets/js/main.js')}}"></script>
+<script>
+      const navLinks = document.querySelectorAll('.nav-item')
+    const menuToggle = document.getElementById('ftco-nav')
+    const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle:false})
+
+    navLinks.forEach((l) => {
+        l.addEventListener('click', () => { bsCollapse.toggle()  })
+    })
+</script>
     @yield('scripts')
 
 </body>
