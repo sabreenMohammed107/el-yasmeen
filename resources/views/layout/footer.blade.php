@@ -63,10 +63,10 @@
   </section>
   <section class="fixed-icons">
       <div>
-          <a href="https://api.whatsapp.com/send?phone=+201117615935&text=alyassmin"  class="float-whatsapp hvr-icon-spin" target="_blank">
+          <a href="https://api.whatsapp.com/send?phone=+966591157933&text=مؤسسة الياسمين لخدمات النظافة المثالية"  class="float-whatsapp hvr-icon-spin" target="_blank">
               <i class="fa-brands fa-whatsapp icon-whatsapp hvr-icon"></i>
           </a>
-          <a href="tel:+201117615935" class="float-phone  hvr-icon-spin" target="_blank">
+          <a href="tel:+966591157933" class="float-phone  hvr-icon-spin" target="_blank">
               <i class="fa-solid fa-phone-flip icon-phone hvr-icon"></i>
           </a>
       </div>

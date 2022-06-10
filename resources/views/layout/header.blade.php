@@ -9,7 +9,7 @@
                     <li class="ftco-animate"><a href="#" class="hvr-icon-push"><span class="fa-brands fa-instagram hvr-icon"></span></a></li>
                 </ul>
                 <div class="text-white ftco-footer-social text float-md-right float-right">
-                    0505839741 - 0505839741 <a><span class="fa-solid fa-phone-flip"></span></a>
+                    0505839741 - 0591157933 <a><span class="fa-solid fa-phone-flip"></span></a>
                 </div>
             </div>
         </div>
