@@ -135,7 +135,7 @@
                                 <div class="item">
                                     <div class="testimony-wrap">
                                         <p class="text-dir">
-{{$feedback->text}}                                        </p>
+{{$feedback->feedback}}                                        </p>
                                         <div class="d-flex dir pt-3">
                                             <div class="user-img" style="background-image: url({{ asset('uploads/feedbacks') }}/{{ $feedback->image }})">
                                             </div>
