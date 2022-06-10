@@ -53,7 +53,7 @@
                                         @isset($whyRows[0])
                                         <div class="col-lg-6 col-md-6 brd-1">
                                             <div class="services-2 d-flex justify-content-center align-items-center">
-                                                <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="imgs/product/1.svg" style="height:40px" /></span></div>
+                                                <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="{{ asset('webassets/imgs/product/1.svg')}}" style="height:40px" /></span></div>
                                             </div>
                                             <div class="text text-center">
                                                 <h4>{{$whyRows[0]->title}}</h4>
@@ -64,7 +64,7 @@
                                         @isset($whyRows[1])
                                         <div class="col-lg-6 col-md-6 brd-2">
                                             <div class="services-2 d-flex justify-content-center align-items-center">
-                                                <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="imgs/product/2.svg" style="height:40px" /></span></div>
+                                                <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="{{ asset('webassets/imgs/product/2.svg')}}" style="height:40px" /></span></div>
                                             </div>
                                             <div class="text text-center">
                                                 <h4>{{$whyRows[1]->title}}</h4>
@@ -75,7 +75,7 @@
                                         @isset($whyRows[2])
                                         <div class="col-lg-6 col-md-6 brd-3">
                                             <div class="services-2 d-flex justify-content-center align-items-center">
-                                                <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="imgs/product/3.svg" style="height:40px" /></span></div>
+                                                <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="{{ asset('webassets/imgs/product/3.svg')}}" style="height:40px" /></span></div>
                                             </div>
                                             <div class="text text-center">
                                                 <h4>{{$whyRows[2]->title}}</h4>
@@ -86,7 +86,7 @@
                                         @isset($whyRows[3])
                                         <div class="col-lg-6 col-md-6">
                                             <div class="services-2 d-flex justify-content-center align-items-center">
-                                                <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="imgs/product/1.svg" style="height:40px" /></span></div>
+                                                <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="{{ asset('webassets/imgs/product/1.svg')}}" style="height:40px" /></span></div>
                                             </div>
                                             <div class="text text-center">
                                                 <h4>{{$whyRows[3]->title}}</h4>
