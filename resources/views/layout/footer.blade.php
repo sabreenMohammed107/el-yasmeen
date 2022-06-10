@@ -33,12 +33,14 @@
         <div class="col-md-4 col-lg-4">
           <div class="ftco-footer-widget mb-5">
               <h2 class="ftco-heading-2">اتصل بنا</h2>
-            <form action="#" class="subscribe-form">
+            <form action="{{url('/contact-message') }}" class="subscribe-form"  method="post" >
+                @csrf
               <div class="form-group">
-                <input type="text" class="form-control mb-2" placeholder="الاسم">
-                  <input type="text" class="form-control mb-2" placeholder="رقم الهاتف">
-                  <textarea type="text" class="form-control mb-2" placeholder="رسالتك"></textarea>
-                  <a href="#" class="btn btn-primary float-left mb-3">إرسال</a>
+                <input type="text" name="name" class="form-control mb-2" placeholder="الاسم">
+                  <input type="text" name="mobile" class="form-control mb-2" placeholder="رقم الهاتف">
+                  <textarea type="text" name="message" class="form-control mb-2" placeholder="رسالتك"></textarea>
+                  <button class="btn btn-primary float-left mb-3">إرسال</button>
+
               </div>
             </form>
           </div>
@@ -61,10 +63,10 @@
   </section>
   <section class="fixed-icons">
       <div>
-          <a href="https://api.whatsapp.com/send?phone=+20100123456789&text=alyassmin" class="float-whatsapp hvr-icon-spin" target="_blank">
+          <a href="https://api.whatsapp.com/send?phone=+201117615935&text=alyassmin"  class="float-whatsapp hvr-icon-spin" target="_blank">
               <i class="fa-brands fa-whatsapp icon-whatsapp hvr-icon"></i>
           </a>
-          <a href="tel:+20100123456789" class="float-phone  hvr-icon-spin" target="_blank">
+          <a href="tel:+201117615935" class="float-phone  hvr-icon-spin" target="_blank">
               <i class="fa-solid fa-phone-flip icon-phone hvr-icon"></i>
           </a>
       </div>

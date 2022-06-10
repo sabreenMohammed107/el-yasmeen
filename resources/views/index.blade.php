@@ -7,34 +7,30 @@
 
 
         <section class="home-slider owl-carousel" id="home-sec">
-            <div class="slider-item" style="background-image:url({{ asset('webassets/imgs/slider/1.png')}});">
+            @foreach ($homeSliders as $slider)
+            <div class="slider-item" style="background-image:url({{ asset('uploads/sliders') }}/{{ $slider->image }});">
                 <div class="overlay"></div>
               <div class="container">
                 <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
                 <div class="col-md-12 ftco-animate text-right">
-                  <h1>خدمات تنظيف احترافيه</h1>
-                  <h2>تنظيف سجاد</h2>
-                  <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز</p>
+                  <h1> {!! $slider->title !!}</h1>
+                  <h2> {!! $slider->subTitle !!}</h2>
+                  <p> {!! $slider->text !!}</p>
                   <!--<p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Contact Us</a></p>-->
                 </div>
               </div>
               </div>
             </div>
+            @endforeach
 
-            <div class="slider-item" style="background-image:url({{ asset('webassets/imgs/slider/3.png')}});">
-                <div class="overlay"></div>
-              <div class="container">
-                <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
-                    <div class="col-md-12 ftco-animate text-right">
-                        <h1 class="mb-2">خدمات تنظيف احترافيه</h1>
-                        <h2>تنظيف سجاد</h2>
-                        <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز</p>
-                        <!--<p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Contact Us</a></p>-->
-                    </div>
-              </div>
-              </div>
-            </div>
+
+
           </section>
+             @if (session()->has('success'))
+             <div class="alert alert-success alert-dismissible fade show" style="text-align: right" >
+                    {{ session()->get('success') }}
+                </div>
+            @endif
             <section class="ftco-section ftco-no-pt ftc-no-pb" id="about-sec">
                 <div class="container">
                     <div class="row d-flex dir mob-container">
@@ -44,51 +40,26 @@
                                 من نحن
                             </h4>
                             <h2>
-                                خدمات تنظيف احترافيه
+                              {{$companyContact->overview_title}}
                             </h2>
                             <p class="text-justify">
-                                هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو وكأنها نص مقروء. العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب تستخدم لوريم إيبسوم بشكل إفتراضي كنموذج عن النص
-                                هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو وكأنها نص مقروء. العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب تستخدم لوريم إيبسوم بشكل إفتراضي كنموذج عن النص
-                            </p>
+                                {{$companyContact->overview_text}} </p>
                         </div>
                         <div class="col-lg-6 col-md-12 col-sm-12 wrap-about py-5 pr-md-4 ftco-animate">
                             <div class="row mt-5">
-                                <div class="col-lg-6 col-md-6 brd-1">
+                                @foreach ($whyRows as $index=>$why)
+                                <div class="col-lg-6 col-md-6 @if($index % 2 == 0) brd-1 @else brd-2 @endif">
                                     <div class="services-2 d-flex justify-content-center align-items-center">
                                         <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="{{ asset('webassets/imgs/product/1.svg')}}" style="height:40px" /></span></div>
                                     </div>
                                     <div class="text text-center">
-                                        <h4>خدمات تنظيف احترافيه</h4>
-                                        <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء</p>
+                                        <h4>{{$why->title}}</h4>
+                                        <p>{{$why->text}}</p>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 brd-2">
-                                    <div class="services-2 d-flex justify-content-center align-items-center">
-                                        <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="{{ asset('webassets/imgs/product/2.svg')}}" style="height:40px" /></span></div>
-                                    </div>
-                                    <div class="text text-center">
-                                        <h4>خدمات على مدار الساعه</h4>
-                                        <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 brd-3">
-                                    <div class="services-2 d-flex justify-content-center align-items-center">
-                                        <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="{{ asset('webassets/imgs/product/3.svg')}}" style="height:40px" /></span></div>
-                                    </div>
-                                    <div class="text text-center">
-                                        <h4>افضل سعر</h4>
-                                        <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="services-2 d-flex justify-content-center align-items-center">
-                                        <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="{{ asset('webassets/imgs/product/1.svg')}}" style="height:40px" /></span></div>
-                                    </div>
-                                    <div class="text text-center">
-                                        <h4>خدمات تنظيف احترافيه</h4>
-                                        <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء</p>
-                                    </div>
-                                </div>
+                                @endforeach
+
+
                             </div>
                         </div>
                     </div>
@@ -102,69 +73,18 @@
                         </div>
                     </div>
                     <div class="row dir">
+                        @foreach ($services as $service)
                         <div class="col-lg-3 col-md-6 course ftco-animate">
-                            <div class="img" style="background-image: url({{ asset('webassets/imgs/product/1.png')}});"></div>
+                            <div class="img" style="background-image: url({{ asset('uploads/services') }}/{{ $service->image }});"></div>
                             <div class="srv-text pt-4">
-                                <h3><a href="#">تنظيف منازل</a></h3>
+                                <h3><a href="#">{{$service->title}}</a></h3>
                                 <p>
-                                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات
-                                </p>
+                                    {{$service->text}}
+                                                                </p>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 course ftco-animate">
-                            <div class="img" style="background-image: url({{ asset('webassets/imgs/product/2.png')}});"></div>
-                            <div class="srv-text pt-4">
-                                <h3><a href="#">تنظيف تتكييفات</a></h3>
-                                <p>
-                                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 course ftco-animate">
-                            <div class="img" style="background-image: url({{ asset('webassets/imgs/product/3.png')}});"></div>
-                            <div class="srv-text pt-4">
-                                <h3><a href="#">تنظيفات خزانات</a></h3>
-                                <p>
-                                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 course ftco-animate">
-                            <div class="img" style="background-image: url({{ asset('webassets/imgs/product/4.png')}});"></div>
-                            <div class="srv-text pt-4">
-                                <h3><a href="#">صيانة مكيفات</a></h3>
-                                <p>
-                                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 course ftco-animate">
-                            <div class="img" style="background-image: url({{ asset('webassets/imgs/product/5.png')}});"></div>
-                            <div class="srv-text pt-4">
-                                <h3><a href="#">مكافحة حشرات</a></h3>
-                                <p>
-                                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 course ftco-animate">
-                            <div class="img" style="background-image: url({{ asset('webassets/imgs/product/6.png')}});"></div>
-                            <div class="srv-text pt-4">
-                                <h3><a href="#">نظافة كنب وسجاد</a></h3>
-                                <p>
-                                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 course ftco-animate">
-                            <div class="img" style="background-image: url({{ asset('webassets/imgs/product/3.png')}});"></div>
-                            <div class="srv-text pt-4">
-                                <h3><a href="#">تعقيم منازل</a></h3>
-                                <p>
-                                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات
-                                </p>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
                 </div>
             </section>
@@ -173,42 +93,19 @@
                     <div class="row d-md-flex align-items-center justify-content-center">
                         <div class="col-lg-12">
                             <div class="row d-md-flex align-items-center">
+                                @foreach ($counters as $counter)
                                 <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
                                     <div class="block-18">
                                         <div class="icon"><span class="flaticon-doctor"></span></div>
                                         <div class="text">
-                                            <strong class="number" data-number="100">0</strong>
-                                            <span>Subscription</span>
+                                            <strong class="number" data-number="{{$counter->title}}">0</strong>
+                                            <span>{{$counter->text}}</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-                                    <div class="block-18">
-                                        <div class="icon"><span class="flaticon-doctor"></span></div>
-                                        <div class="text">
-                                            <strong class="number" data-number="50">0</strong>
-                                            <span>Cities Office</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-                                    <div class="block-18">
-                                        <div class="icon"><span class="flaticon-doctor"></span></div>
-                                        <div class="text">
-                                            <strong class="number" data-number="200">0</strong>
-                                            <span>Worker</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
-                                    <div class="block-18">
-                                        <div class="icon"><span class="flaticon-doctor"></span></div>
-                                        <div class="text">
-                                            <strong class="number" data-number="500">0</strong>
-                                            <span>Happy Clients</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+
+
                             </div>
                         </div>
                     </div>
@@ -230,86 +127,27 @@
                           اراءكم تهمنا للتطوير
                       </h2>
                             <p class="text-justify">
-                                العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب تستخدم لوريم إيبسوم بشكل إفتراضي كنموذج عن النص هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات
-                            </p>
+                                {{$companyContact->feedback_text}}                          </p>
                         </div>
                         <div class="col-md-6">
                             <div class="carousel-testimony owl-carousel">
+                                @foreach ($feedbacks as $feedback)
                                 <div class="item">
                                     <div class="testimony-wrap">
                                         <p class="text-dir">
-                                            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                                        </p>
+{{$feedback->text}}                                        </p>
                                         <div class="d-flex dir pt-3">
-                                            <div class="user-img" style="background-image: url({{ asset('webassets/imgs/team/teacher-1.jpg')}})">
+                                            <div class="user-img" style="background-image: url({{ asset('uploads/feedbacks') }}/{{ $feedback->image }})">
                                             </div>
                                             <div class="mr-2">
-                                                <p class="name">محمد إبراهيم</p>
-                                                <span class="position">مدير شركة الأهرام</span>
+                                                <p class="name">{{$feedback->name}} </p>
+                                                <span class="position">{{$feedback->position}} </span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item">
-                                    <div class="testimony-wrap">
-                                        <p class="text-dir">
-                                            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                                        </p>
-                                        <div class="d-flex dir pt-3">
-                                            <div class="user-img" style="background-image: url({{ asset('webassets/imgs/team/teacher-1.jpg')}})">
-                                            </div>
-                                            <div class="mr-2">
-                                                <p class="name">محمد إبراهيم</p>
-                                                <span class="position">مدير شركة الأهرام</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="testimony-wrap">
-                                        <p class="text-dir">
-                                            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                                        </p>
-                                        <div class="d-flex dir pt-3">
-                                            <div class="user-img" style="background-image: url({{ asset('webassets/imgs/team/teacher-1.jpg')}})">
-                                            </div>
-                                            <div class="mr-2">
-                                                <p class="name">محمد إبراهيم</p>
-                                                <span class="position">مدير شركة الأهرام</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="testimony-wrap">
-                                        <p class="text-dir">
-                                            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                                        </p>
-                                        <div class="d-flex dir pt-3">
-                                            <div class="user-img" style="background-image: url({{ asset('webassets/imgs/team/teacher-1.jpg')}})">
-                                            </div>
-                                            <div class="mr-2">
-                                                <p class="name">محمد إبراهيم</p>
-                                                <span class="position">مدير شركة الأهرام</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="testimony-wrap">
-                                        <p class="text-dir">
-                                            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                                        </p>
-                                        <div class="d-flex dir pt-3">
-                                            <div class="user-img" style="background-image: url({{ asset('webassets/imgs/team/teacher-1.jpg')}})">
-                                            </div>
-                                            <div class="mr-2">
-                                                <p class="name">محمد إبراهيم</p>
-                                                <span class="position">مدير شركة الأهرام</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>
@@ -326,46 +164,29 @@
                           سابقه اعمالنا
                       </h2>
                       <p>
-                          العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب تستخدم لوريم إيبسوم
+                        {{$companyContact->gallery_text}}
                       </p>
                             </div>
                             </div>
                             <div class="float-left">
-                      <a href="{{ url('/gallery') }}"> سابقة الأعمال   <i class="fa-solid fa-arrow-left"></i></a>
+                      <a href=""> سابقة الأعمال   <i class="fa-solid fa-arrow-left"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="container-wrap">
                     <div class="row no-gutters">
+                        @foreach ($gallery as $obj)
                         <div class="col-md-3 ftco-animate">
-                            <a href="{{ asset('webassets/imgs/gallery/10.png')}}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/10.png')}});">
+                            <a href="{{ asset('uploads/gallery') }}/{{ $obj->image }}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({{ asset('uploads/gallery') }}/{{ $obj->image }});">
                                 <div class="icon mb-4 d-flex align-items-center justify-content-center">
                                     <span class="fa-brands fa-instagram"></span>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-md-3 ftco-animate">
-                            <a href="{{ asset('webassets/imgs/gallery/8.png')}}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/8.png')}});">
-                                <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                    <span class="fa-brands fa-instagram"></span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 ftco-animate">
-                            <a href="{{ asset('webassets/imgs/gallery/5.png')}}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/5.png')}});">
-                                <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                    <span class="fa-brands fa-instagram"></span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 ftco-animate">
-                            <a href="{{ asset('webassets/imgs/gallery/12.png')}}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/12.png')}});">
-                                <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                    <span class="fa-brands fa-instagram"></span>
-                                </div>
-                            </a>
-                        </div>
+                        @endforeach
+
+
                     </div>
                 </div>
             </section>
@@ -379,7 +200,7 @@
                                         المدونة
                                     </h2>
                                     <p>
-                                    العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب تستخدم لوريم إيبسوم
+                                        {{$companyContact->blogs_text}}
                                     </p>
                                 </div>
                             </div>
@@ -389,42 +210,19 @@
                         </div>
                     </div>
                     <div class="row dir">
+                        @foreach ($blogs as $blog)
                         <div class="col-lg-3 col-md-6 course ftco-animate">
-                            <div class="img" style="background-image: url({{ asset('webassets/imgs/product/4.png')}});"></div>
+                            <div class="img" style="background-image: url({{ asset('uploads/blogs') }}/{{ $blog->image }});"></div>
                             <div class="srv-text pt-4">
-                                <h3><a href="#">تنظيف منازل</a></h3>
+                                <h3><a href="#">{{ $blog->title }}</a></h3>
                                 <p>
-                                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات
+                                    {{ $blog->text }}
                                 </p>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 course ftco-animate">
-                            <div class="img" style="background-image: url({{ asset('webassets/imgs/product/5.png')}});"></div>
-                            <div class="srv-text pt-4">
-                                <h3><a href="#">تنظيف منازل</a></h3>
-                                <p>
-                                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 course ftco-animate">
-                            <div class="img" style="background-image: url({{ asset('webassets/imgs/product/6.png')}});"></div>
-                            <div class="srv-text pt-4">
-                                <h3><a href="#">تنظيف منازل</a></h3>
-                                <p>
-                                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 course ftco-animate">
-                            <div class="img" style="background-image: url({{ asset('webassets/imgs/product/3.png')}});"></div>
-                            <div class="srv-text pt-4">
-                                <h3><a href="#">تنظيف منازل</a></h3>
-                                <p>
-                                    هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات
-                                </p>
-                            </div>
-                        </div>
+                        @endforeach
+
+
                     </div>
                 </div>
             </section>

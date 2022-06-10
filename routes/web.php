@@ -20,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class,'index']);
 Route::get('/gallery', [IndexController::class,'gallery']);
+Route::post('/contact-message', [IndexController::class,'sendMessage']);
