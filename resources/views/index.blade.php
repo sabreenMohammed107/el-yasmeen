@@ -47,17 +47,59 @@
                         </div>
                         <div class="col-lg-6 col-md-12 col-sm-12 wrap-about py-5 pr-md-4 ftco-animate">
                             <div class="row mt-5">
-                                @foreach ($whyRows as $index=>$why)
-                                <div class="col-lg-6 col-md-6 @if($index % 2 == 0) brd-1 @else brd-2 @endif">
-                                    <div class="services-2 d-flex justify-content-center align-items-center">
-                                        <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="{{ asset('webassets/imgs/product/1.svg')}}" style="height:40px" /></span></div>
-                                    </div>
-                                    <div class="text text-center">
-                                        <h4>{{$why->title}}</h4>
-                                        <p>{{$why->text}}</p>
+
+                                <div class="col-lg-6 col-md-12 col-sm-12 wrap-about py-5 pr-md-4 ftco-animate">
+                                    <div class="row mt-5">
+                                        @isset($whyRows[0])
+                                        <div class="col-lg-6 col-md-6 brd-1">
+                                            <div class="services-2 d-flex justify-content-center align-items-center">
+                                                <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="imgs/product/1.svg" style="height:40px" /></span></div>
+                                            </div>
+                                            <div class="text text-center">
+                                                <h4>{{$whyRows[0]->title}}</h4>
+                                                <p>{{$whyRows[0]->text}}</p>
+                                            </div>
+                                        </div>
+                                        @endisset
+                                        @isset($whyRows[1])
+                                        <div class="col-lg-6 col-md-6 brd-2">
+                                            <div class="services-2 d-flex justify-content-center align-items-center">
+                                                <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="imgs/product/2.svg" style="height:40px" /></span></div>
+                                            </div>
+                                            <div class="text text-center">
+                                                <h4>{{$whyRows[1]->title}}</h4>
+                                                <p>{{$whyRows[1]->text}}</p>
+                                            </div>
+                                        </div>
+                                        @endisset
+                                        @isset($whyRows[2])
+                                        <div class="col-lg-6 col-md-6 brd-3">
+                                            <div class="services-2 d-flex justify-content-center align-items-center">
+                                                <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="imgs/product/3.svg" style="height:40px" /></span></div>
+                                            </div>
+                                            <div class="text text-center">
+                                                <h4>{{$whyRows[2]->title}}</h4>
+                                                <p>{{$whyRows[2]->text}}</p>
+                                            </div>
+                                        </div>
+                                        @endisset
+                                        @isset($whyRows[3])
+                                        <div class="col-lg-6 col-md-6">
+                                            <div class="services-2 d-flex justify-content-center align-items-center">
+                                                <div class="icon mt-2 d-flex justify-content-center align-items-center"><span><img src="imgs/product/1.svg" style="height:40px" /></span></div>
+                                            </div>
+                                            <div class="text text-center">
+                                                <h4>{{$whyRows[3]->title}}</h4>
+                                                <p>{{$whyRows[3]->text}}</p>
+                                            </div>
+                                        </div>
+                                        @endisset
+
+
+
+
                                     </div>
                                 </div>
-                                @endforeach
 
 
                             </div>
