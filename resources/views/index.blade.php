@@ -40,10 +40,10 @@
                                 من نحن
                             </h4>
                             <h2>
-                              {{$companyContact->overview_title}}
+                              {!! $companyContact->overview_title !!}
                             </h2>
                             <p class="text-justify">
-                                {{$companyContact->overview_text}} </p>
+                                {!! $companyContact->overview_text !!} </p>
                         </div>
                         <div class="col-lg-6 col-md-12 col-sm-12 wrap-about py-5 pr-md-4 ftco-animate">
                             <div class="row mt-5">
