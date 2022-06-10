@@ -14,7 +14,7 @@
                 <div class="row no-gutters slider-text align-items-center justify-content-start" data-scrollax-parent="true">
                 <div class="col-md-12 ftco-animate text-right">
                   <h1> {!! $slider->title !!}</h1>
-                  <h2> {!! $slider->subTitle !!}</h2>
+                  <h2> {!! $slider->subtitle !!}</h2>
                   <p> {!! $slider->text !!}</p>
                   <!--<p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Contact Us</a></p>-->
                 </div>
