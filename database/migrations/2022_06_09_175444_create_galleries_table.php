@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
+            $table->integer('type')->nullable()->comment(" 1>> image , 2>> vedio");
             $table->string('image')->nullable();
             $table->text('vedio_url')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
