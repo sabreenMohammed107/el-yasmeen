@@ -50,9 +50,5 @@ class LoginController extends Controller
             return redirect('/login');
 
     }
-    protected function authenticated(Request $request, $user)
-    {
 
-        return redirect($redirect);
-    }
 }
