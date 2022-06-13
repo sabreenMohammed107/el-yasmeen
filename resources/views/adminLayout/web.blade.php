@@ -30,7 +30,7 @@
       </div><!-- /.content-wrapper -->
       <footer class="main-footer">
 
-        <p>Copyright © 2022 All rights reserved to RKS</p>
+        <p>Copyright © 2022 All rights reserved to مؤسسة الياسمين</p>
       </footer>
 
 
