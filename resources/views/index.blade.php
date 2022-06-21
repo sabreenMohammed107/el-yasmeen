@@ -209,7 +209,7 @@
                             </div>
                             </div>
                             <div class="float-left">
-                      <a href=""> سابقة الأعمال   <i class="fa-solid fa-arrow-left"></i></a>
+                      <a href="{{ url('/gallery') }}"> سابقة الأعمال   <i class="fa-solid fa-arrow-left"></i></a>
                             </div>
                         </div>
                     </div>
@@ -245,7 +245,7 @@
                                 </div>
                             </div>
                             <div class="float-left">
-                                <a href=""> المدونة   <i class="fa-solid fa-arrow-left"></i></a>
+                                <a href="{{ url('/blogs') }}"> المدونة   <i class="fa-solid fa-arrow-left"></i></a>
                             </div>
                         </div>
                     </div>

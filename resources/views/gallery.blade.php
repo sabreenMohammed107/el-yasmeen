@@ -26,139 +26,73 @@
             <div class="col-lg-2">
                 <div class="filters">
                     <ul>
-                        <li class="active" data-filter="*">تنظيف منازل</li>
-                        <li data-filter=".corporate">تنظيف تكييفات</li>
-                        <li data-filter=".personal">تنظيف خزنات</li>
-                        <li data-filter=".agency">صيانه مكيفات</li>
-                        <li data-filter=".portal">مكافحه حشرات</li>
-                        <li data-filter=".personal">المدونه</li>
-                        <li data-filter=".agency">تنظيف منازل</li>
-                        <li data-filter=".portal">تنظيف تكييفات</li>
+                        <li class="active" data-filter="*">كل الصور</li>
+                        @foreach ($categories as $row)
+
+
+                        <li class="list col bg-cat2" data-filter=".{{ $row->id }}" >{{ $row->name ?? '' }}
+                        </li>
+
+                    @endforeach
+                    <li data-filter=".video" class="bg-cat2"  >فيديو</li>
+
                     </ul>
                 </div>
             </div>
             <div class="col-lg-10">
                 <div class="filters-content">
-                    <div class="row grid">
-                        <div class="col-lg-3 col-md-6 all corporate agency">
+                    <div class="row grid" dir="rtl">
+                      @foreach ($galleries as $row)
+
+                      <div
+                          class="col-sm-3  all @if ($row->type == 1)
+                          images
+                      @else
+                      video
+                      @endif {{ $row->cat->id ?? '' }}">
                             <div class="item">
-                                <a href="{{ asset('webassets/imgs/gallery/1.png')}}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/1.png')}});">
-                                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                        <span class="fa-brands fa-instagram"></span>
-                                    </div>
+
+                                @if ($row->type == 1)
+                                <a href="{{ asset('uploads/gallery') }}/{{ $row->image }}" class="gallery image-popup img d-flex align-items-center" style="background-image: url('{{asset('uploads/gallery') }}/{{$row->image}}');">
+                                  <div class="icon mb-4 d-flex align-items-center justify-content-center">
+                                      <span class="fa-solid fa-image"></span>
+                                  </div>
                                 </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 all personal corporate">
-                            <div class="item">
-                                <div class="img img-video d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/2.png')}});height:200px">
-                                    <div class="video justify-content-center">
-                                        <a href="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
-                                            <span class="fa-solid fa-play"></span>
-                                        </a>
-                                    </div>
+                                @else
+
+                                {{-- <div class="img img-video d-flex align-items-center"  style="background-image: url({{ $row->vedio_url }});height:200px">
+                                <div class="video justify-content-center">
+                                    <a href="{{ $row->vedio_url }}" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
+                                        <span class="fa-solid fa-play"></span>
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 all agency personal">
-                            <div class="item">
-                                <a href="{{ asset('webassets/imgs/gallery/3.png')}}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/3.png')}});">
-                                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                        <span class="fa-brands fa-instagram"></span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 all portal">
-                            <div class="item">
-                                <a href="imgs/gallery/4.png" class="gallery image-popup img d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/4.png')}});">
-                                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                        <span class="fa-brands fa-instagram"></span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 all corporate portal">
-                            <div class="item">
-                                <div class="img img-video d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/5.png')}});height:200px">
-                                    <div class="video justify-content-center">
-                                        <a href="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
-                                            <span class="fa-solid fa-play"></span>
-                                        </a>
-                                    </div>
+
+                                </div> --}}
+                                <div class="img img-video d-flex align-items-center"  style="background-image: url({{ $row->vedio_url }});height:200px">
+                                <a href="{{ $row->vedio_url }}" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
+
+
+
+                                      <iframe src="{{ $row->vedio_url }}" style=" width: 100%;
+                                          height: 100%;
+                                          position: absolute;
+                                          object-fit: cover;
+                                          z-index: 0;" frameborder="0"></iframe>
+
+                                      <div>
+                                          <i class="fa fa-play text-white fz-18"></i>
+                                      </div>
+
+
+                              </a>
                                 </div>
+                          @endif
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6 all personal">
-                            <div class="item">
-                                <a href="{{ asset('webassets/imgs/gallery/6.png')}}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/6.png')}});">
-                                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                        <span class="fa-brands fa-instagram"></span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 all agency">
-                            <div class="item">
-                                <a href="{{ asset('webassets/imgs/gallery/7.png')}}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/7.png')}});">
-                                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                        <span class="fa-brands fa-instagram"></span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 all portal">
-                            <div class="item">
-                                <div class="img img-video d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/8.png')}});height:200px">
-                                    <div class="video justify-content-center">
-                                        <a href="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
-                                            <span class="fa-solid fa-play"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 all corporate">
-                            <div class="item">
-                                <a href="{{ asset('webassets/imgs/gallery/9.png')}}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/9.png')}});">
-                                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                        <span class="fa-brands fa-instagram"></span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 all personal">
-                            <div class="item">
-                                <a href="{{ asset('webassets/imgs/gallery/10.png')}}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/10.png')}});">
-                                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                        <span class="fa-brands fa-instagram"></span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 all agency">
-                            <div class="item">
-                                <a href="{{ asset('webassets/imgs/gallery/11.png')}}" class="gallery image-popup img d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/11.png')}});">
-                                    <div class="icon mb-4 d-flex align-items-center justify-content-center">
-                                        <span class="fa-brands fa-instagram"></span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 all portal">
-                            <div class="item">
-                                <div class="img img-video d-flex align-items-center" style="background-image: url({{ asset('webassets/imgs/gallery/12.png')}});height:200px">
-                                    <div class="video justify-content-center">
-                                        <a href="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
-                                            <span class="fa-solid fa-play"></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
-            </div>
+                  </div>
         </div>
         {{-- <div class="row justify-content-center mb-5 pb-2 mt-5">
             <div class="col-md-8 text-center heading-section ftco-animate">
@@ -188,81 +122,24 @@
         <div class="row ftco-animate justify-content-center">
             <div class="col-md-6">
                 <div class="carousel-testimony owl-carousel">
+                    @foreach ($feedbacks as $feedback)
                     <div class="item">
                         <div class="testimony-wrap">
                             <p class="text-dir">
-                                هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
+                                {{$feedback->feedback}}
                             </p>
                             <div class="d-flex dir pt-3">
-                                <div class="user-img" style="background-image: url({{ asset('webassets/imgs/team/teacher-1.jpg')}})">
+                                <div class="user-img" style="background-image: url({{ asset('uploads/feedbacks') }}/{{ $feedback->image }})">
                                 </div>
                                 <div class="mr-2">
-                                    <p class="name">محمد إبراهيم</p>
-                                    <span class="position">مدير شركة الأهرام</span>
+                                    <p class="name">{{$feedback->name}}</p>
+                                    <span class="position">{{$feedback->position}}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="testimony-wrap">
-                            <p class="text-dir">
-                                هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                            </p>
-                            <div class="d-flex dir pt-3">
-                                <div class="user-img" style="background-image: url({{ asset('webassets/imgs/team/teacher-1.jpg')}})">
-                                </div>
-                                <div class="mr-2">
-                                    <p class="name">محمد إبراهيم</p>
-                                    <span class="position">مدير شركة الأهرام</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap">
-                            <p class="text-dir">
-                                هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                            </p>
-                            <div class="d-flex dir pt-3">
-                                <div class="user-img" style="background-image: url({{ asset('webassets/imgs/team/teacher-1.jpg')}})">
-                                </div>
-                                <div class="mr-2">
-                                    <p class="name">محمد إبراهيم</p>
-                                    <span class="position">مدير شركة الأهرام</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap">
-                            <p class="text-dir">
-                                هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                            </p>
-                            <div class="d-flex dir pt-3">
-                                <div class="user-img" style="background-image: url({{ asset('webassets/imgs/team/teacher-1.jpg')}})">
-                                </div>
-                                <div class="mr-2">
-                                    <p class="name">محمد إبراهيم</p>
-                                    <span class="position">مدير شركة الأهرام</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimony-wrap">
-                            <p class="text-dir">
-                                هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع
-                            </p>
-                            <div class="d-flex dir pt-3">
-                                <div class="user-img" style="background-image: url({{ asset('webassets/imgs/team/teacher-1.jpg')}})">
-                                </div>
-                                <div class="mr-2">
-                                    <p class="name">محمد إبراهيم</p>
-                                    <span class="position">مدير شركة الأهرام</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
             <div class="offset-1 col-md-5 text-dir">
@@ -299,3 +176,5 @@
     })
 </script>
 @endsection
+
+

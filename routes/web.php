@@ -29,6 +29,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [IndexController::class,'index']);
 Route::get('/gallery', [IndexController::class,'gallery']);
 Route::post('/contact-message', [IndexController::class,'sendMessage']);
+Route::get('/blogs', [IndexController::class,'blogs']);
+Route::get('/single-blog/{id}/{slug?}',[IndexController::class,'singleBlog']);
+Route::get('blog/fetch_data', [IndexController::class, 'fetch_data']);
 
 Auth::routes();
 

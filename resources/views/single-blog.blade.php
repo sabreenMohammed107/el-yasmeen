@@ -21,15 +21,18 @@
     <div class="container mob-container">
         <div class="row dir text-dir">
             <div class="col-lg-8 ftco-animate">
-                <div id="table_data">
 
-                    @include('blogList')
+                    <div class="mb-4">
+                        <p>
+                            <img src="{{ asset('uploads/blogs') }}/{{ $blog->image ?? '' }}" alt="" class="img-fluid">
+                        </p>
+                        <h2> {!! $blog->title ?? '' !!}</h2>
+                        <p class="text-justify">
+                            {!! $blog->text ?? '' !!}        </p>
+                  </div>
+                </div> <!-- .col-md-8 -->
 
 
-
-                </div>
-
-            </div> <!-- .col-md-8 -->
             <div class="col-lg-4 sidebar ftco-animate">
                 <div class="sidebar-box ftco-animate pt-2 bg-side">
                     <div class="line"></div>
@@ -72,28 +75,6 @@
 
 @endsection
 
-@section('scripts')
-    <script>
-        $(document).ready(function() {
 
-            $(document).on('click', '.pagination a', function(event) {
-                event.preventDefault();
-                var page = $(this).attr('href').split('page=')[1];
-
-                fetch_data(page);
-            });
-
-            function fetch_data(page) {
-                $.ajax({
-                    url: "/blog/fetch_data?page=" + page,
-                    success: function(data) {
-                        $('#table_data').html(data);
-                    }
-                });
-            }
-
-        });
-    </script>
-@endsection
 
 
