@@ -29,7 +29,7 @@ class IndexController extends Controller
     }
 
     public function gallery(){
-        $blogs=Gallery::get();
+        $galleries=Gallery::get();
         $categories = Gallery_category::all();
         $feedbacks=Feedback::where('active',1)->get();
                 return view('gallery',compact('galleries','categories','feedbacks'));

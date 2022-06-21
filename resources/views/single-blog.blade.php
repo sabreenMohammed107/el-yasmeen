@@ -36,6 +36,7 @@
             <div class="col-lg-4 sidebar ftco-animate">
                 <div class="sidebar-box ftco-animate pt-2 bg-side">
                     <div class="line"></div>
+
                     <h3>اخر المقالات</h3>
                     @foreach ($latestPlogs as $latest)
                     <div class="block-21 mb-4 d-flex">
@@ -45,6 +46,7 @@
                         </div>
                     </div>
                     @endforeach
+
 
                 </div>
                 {{-- <div class="sidebar-box ftco-animate pr-0 pl-0">
